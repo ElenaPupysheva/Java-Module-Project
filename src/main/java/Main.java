@@ -8,12 +8,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         for (int i = 1; i < 4; i++) {
             System.out.println("Введите марку машины №:" + i);
-            String name = scanner.next();
+            String name = scanner.nextLine();
             int speed;
             System.out.println("Введите скорость машины:" + i);
             while (true) {
                 if (scanner.hasNextInt()) {
                     speed = scanner.nextInt();
+                    scanner.nextLine();
                     int max = 250;
                     int min = 0;
                     if ((speed > min) && (speed <= max)) {
@@ -23,7 +24,8 @@ public class Main {
                     }
                 } else {
                     System.out.println("Некорректный ввод. Пожалуйста, введите целое число.");
-                    scanner.next();
+                    scanner.nextLine();
+
                 }
             }
             carList.add(new Car(name, speed));
